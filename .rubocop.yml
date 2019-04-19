@@ -1,0 +1,48 @@
+require: rubocop-performance
+
+AllCops:
+  EnabledByDefault: true
+  Exclude:
+    - db/schema.rb
+    - vendor/bundle/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Max: 120
+
+Style/BlockComments:
+  Exclude:
+    - spec/spec_helper.rb
+
+Style/Copyright:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/InlineComment:
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Exclude:
+    - spec/**/*
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - bin/setup
+    - bin/update
