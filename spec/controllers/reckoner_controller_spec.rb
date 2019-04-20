@@ -26,6 +26,7 @@ RSpec.describe ReckonerController, type: :controller do
 
       it 'renders a JSON response with the new couple' do
         post :create, params: { couple: [user1, user2] }
+        expect(response.body).to include('dink_reckoner')
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
@@ -34,6 +35,7 @@ RSpec.describe ReckonerController, type: :controller do
     context 'with invalid params' do
       it 'renders a JSON response with errors for the new couple' do
         post :create, params: { couple: [user1, invalid_user2] }
+        expect(response.body).to include('Validation failed')
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end

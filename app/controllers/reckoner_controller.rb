@@ -4,7 +4,7 @@ class ReckonerController < ApplicationController
 
     users = Users::FindOrCreate.new(couple_params).perform
 
-    message, percentage = Couples::Reckoner.new(users).perform
+    percentage, message = Couples::Reckoner.new(users).perform
 
     render json: { dink_reckoner: "#{percentage}%", message: message },
            status: :ok
