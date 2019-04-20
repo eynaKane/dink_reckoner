@@ -1,6 +1,6 @@
 class ReckonerController < ApplicationController
   def create
-    raise Standard::Error, 'Only double income is allowed!' if couple_params.count > 2
+    raise StandardError, 'Only double income is allowed!' unless couple_params.count == 2
 
     users = Users::FindOrCreate.new(couple_params).perform
 
@@ -8,7 +8,7 @@ class ReckonerController < ApplicationController
 
     render json: { dink_reckoner: "#{percentage}%", message: message },
            status: :ok
-  rescue ActiveRecord::RecordInvalid => e
+  rescue StandardError, ActiveRecord::RecordInvalid => e
     render json: { message: e }, status: :unprocessable_entity
   end
 

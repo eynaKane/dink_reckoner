@@ -40,5 +40,14 @@ RSpec.describe ReckonerController, type: :controller do
         expect(response.content_type).to eq('application/json')
       end
     end
+
+    context 'with invalid number of users' do
+      it 'renders a JSON response with errors for the new couple' do
+        post :create, params: { couple: [user1, user2, user2] }
+        expect(response.body).to include('Only double income is allowed!')
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response.content_type).to eq('application/json')
+      end
+    end
   end
 end
