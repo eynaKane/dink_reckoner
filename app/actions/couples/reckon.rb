@@ -7,12 +7,12 @@ module Couples
     end
 
     def perform
-      evaluate(total_percentage)
+      evaluate
     end
 
     private
 
-    def evaluate(total_percentage)
+    def evaluate
       case total_percentage
       when 0..49
         'You\'re better off with someone else!'

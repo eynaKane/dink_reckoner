@@ -7,7 +7,6 @@ module Couples
     end
 
     def perform
-      total_income
       calculate_income_percentage
     end
 

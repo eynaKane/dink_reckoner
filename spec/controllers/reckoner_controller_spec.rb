@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe ReckonerController, type: :controller do
   let(:user1) do
     FactoryBot.attributes_for(:user)

@@ -8,7 +8,7 @@ module Couples
 
     def perform
       split_user_names
-      calculate_name_percentage(total_chars, total_uncommon_chars)
+      calculate_name_percentage
     end
 
     private
@@ -26,7 +26,7 @@ module Couples
       (full_name1 - full_name2).count
     end
 
-    def calculate_name_percentage(total_chars, total_uncommon_chars)
+    def calculate_name_percentage
       base = (total_chars - total_uncommon_chars) / Float(total_chars)
       (base * 50).round
     end
