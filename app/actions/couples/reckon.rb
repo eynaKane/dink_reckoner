@@ -19,7 +19,7 @@ module Couples
       when 50..59
         'I\'ll give you one year!'
       when 60..69
-        'You\'ll need to work a little harder to make it work!'
+        'You\'ll need to work extra hard on your relationship!'
       when 70..79
         'Don\'t talk about marriage just yet!'
       when 80..89
