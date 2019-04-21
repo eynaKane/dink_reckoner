@@ -1,8 +1,8 @@
 class ReckonerController < ApplicationController
   def create
-    raise StandardError, 'Only double income is allowed!' unless couple_params.count == 2
+    raise StandardError, 'Only double income is allowed!' unless users_params.count == 2
 
-    users = Users::FindOrCreate.new(couple_params).perform
+    users = Users::FindOrCreate.new(users_params).perform
 
     percentage, message = Couples::Reckoner.new(users).perform
 
@@ -14,7 +14,7 @@ class ReckonerController < ApplicationController
 
   private
 
-  def couple_params
+  def users_params
     params.require(:couple).map do |user_params|
       user_params.permit(
         :full_name,
